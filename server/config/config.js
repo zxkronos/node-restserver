@@ -21,7 +21,7 @@ process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 //=========================
 // Seed de autenticacion
 // ========================
-process.env.SEED = 'Seed-secreto';
+process.env.SEED = process.env.SEED | 'Seed-secreto';
 
 //=========================
 // Entorno
