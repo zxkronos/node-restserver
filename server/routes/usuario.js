@@ -19,7 +19,7 @@ app.get('/usuario', verificarToken, function(req, res) {
     Usuario.find({ estado: true }, 'nombre email role estado google img')
         .skip(desde)
         .limit(limite)
-        .exec((err, usuarios) => {
+        .exec((err, usuarioDB) => {
             if (err) {
                 return res.status(400).json({
                     ok: false,
@@ -30,7 +30,7 @@ app.get('/usuario', verificarToken, function(req, res) {
                 res.json({
                     ok: true,
                     cuantos: conteo,
-                    usuarios
+                    usuarioDB
 
                 });
             });
@@ -91,7 +91,7 @@ app.put('/usuario/:id', [verificarToken, verificarAdmin_Rol], verificarToken, fu
 
 app.delete('/usuario/:id', [verificarToken, verificarAdmin_Rol], verificarToken, function(req, res) {
     let id = req.params.id;
-    console.log(id);
+    //console.log(id);
     let cambiaEstado = {
         estado: false
     }

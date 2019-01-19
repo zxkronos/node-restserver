@@ -28,7 +28,7 @@ let verificarToken = (req, res, next) => {
 // ========================
 let verificarAdmin_Rol = (req, res, next) => {
     let usuario = req.usuario;
-    console.log(usuario.role);
+    //console.log(usuario.role);
     if (usuario.role === 'USER_ROLE') {
         return res.json({
             ok: false,
